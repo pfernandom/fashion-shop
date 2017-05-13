@@ -1,6 +1,11 @@
 # Service registers under this name
 # Control the InternalResourceViewResolver:
 spring:
+  thymeleaf:
+    cache: false
+  devtools:
+    remote:
+      secret: thisismysecret
   application:
     name: web
 
@@ -19,6 +24,7 @@ logging:
   level:
     org.springframework.web: ERROR
     com.example: DEBUG
+    org.springframework.boot.devtools: DEBUG
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
     file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

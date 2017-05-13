@@ -1,6 +1,9 @@
 ### Spring properties
 # Service registers under this name
 spring:
+  devtools:
+    remote:
+      secret: thisismysecret
   application:
     name: inventory-service
   cloud:

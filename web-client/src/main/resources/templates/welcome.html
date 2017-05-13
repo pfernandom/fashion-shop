@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <link rel="stylesheet" type="text/css"
-	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+	href="webjars/bootstrap/3.2.0/css/bootstrap.min.css" />
 
 <link rel="stylesheet" th:href="@{/css/main.css}"
 	href="../../css/main.css" />
@@ -30,17 +30,28 @@
 	<div class="container">
 
 		<div class="starter-template">
-			<h1>Spring Boot Web Thymeleaf Example</h1>
-			<h2>
-				<span th:text="'Message: ' + ${message}"></span>
-			</h2>
+			<h1>Fashion Shop</h1>
+
+			<h3>Sales</h3>
+			<table class="table">
+				<tr>
+					<th>NAME</th>
+					<th>PRICE</th>
+					<th>SIZE</th>
+				</tr>
+				<tr th:each="garmet : ${garments}">
+					<td th:text="${garmet.name}"></td>
+					<td th:text="${garmet.price}"></td>
+					<td th:text="${garmet.size}"></td>
+				</tr>
+			</table>
 		</div>
 
 	</div>
 	<!-- /.container -->
 
 	<script type="text/javascript"
-		src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 </body>
 </html>

@@ -36,7 +36,7 @@ public class InventoryController {
 		repo.insert(garment);
 		
 		Sale sale = new Sale();
-		sale.setProduct("Good Skirt");
+		sale.setProduct("Good Skirtss");
 		sale.setAmount(1);
 		sale = salesRepo.newSale(sale );
 		System.out.println("New sale:"+sale.getId());
@@ -45,6 +45,7 @@ public class InventoryController {
 		System.out.println("Garments:"+garments.size());
 		garments.stream().forEach(g -> {System.out.println(g.getName());});
 		model.put("message", this.message);
+		model.put("garments", garments);
 		return "welcome";
 	}
 
