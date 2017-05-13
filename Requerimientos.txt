@@ -1,0 +1,5 @@
+-Inventario
+-Existencias, por talla
+-Alertas cuando el inventario este bajo para resurtir
+-Calculadora de medidas a talla
+-Loyalty

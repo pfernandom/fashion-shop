@@ -1,0 +1,30 @@
+# Service registers under this name
+# Control the InternalResourceViewResolver:
+spring:
+  application:
+    name: web
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:1111/eureka/
+
+# Disable Spring Boot's "Whitelabel" default error page, so we can use our own
+error:
+  whitelabel:
+    enabled:  false
+    
+logging:
+  level:
+    org.springframework.web: ERROR
+    com.example: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file: /logs/application.log
+  
+  
+services:
+  inventory: http://INVENTORY-SERVICE
+  sales: http://SALES-SERVICE

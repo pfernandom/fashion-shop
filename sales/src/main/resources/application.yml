@@ -1,0 +1,50 @@
+### Spring properties
+# Service registers under this name
+spring:
+  application:
+    name: sales-service
+  datasource:
+    url: jdbc:postgresql://sales-db/sales
+    username: admin
+    password: admin
+  jpa:
+    generate-ddl: true
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: ex.stream.in
+          binder: rabbit1
+        output:
+          destination: ex.stream.out
+          group: order
+          binder: rabbit1
+      binders:
+        rabbit1:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: queue
+                port: 5672
+                username: admin
+                password: admin    
+
+# Discovery Server Access
+eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://discovery:1111/eureka/
+
+# HTTP Server (Tomcat) Port
+server: 
+  port: 3333
+  
+logging:
+  level:
+    org.springframework.web: ERROR
+    com.example: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file: /logs/application.log
